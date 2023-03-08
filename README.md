@@ -48,7 +48,7 @@ print(words[:50])
 ```
 In the above code we are importing nltk and random packages along with some more packages from nltk. After that read a file and preprocess it. next we are converting the text into lowercase. Tokenizing each word and removing punctuations. printing first 50 words.
 
-```python 
+```
 # Generate 5 sentences with 10 words 
 unigrams = []
 freq_unigrams = nltk.FreqDist(words)
@@ -67,10 +67,12 @@ for i in range(num_of_sentences):
         tokens_sentence.append(tuple(word_))
     print(" ".join(sentence))
     print(tokens_sentence)
-	```
+```
+
 Creating an empty list unigrams, using nltk freqdist finding the most frequent words and looping through the keys and appending into empty list. we are looping through the sentences and words, appending the randomly picked words.
 
-```python 
+
+```
 # generate 5 sentences with 10 words with bigram
 print("BIGRAM:\n")
 bigrams = list(nltk.bigrams(words))
@@ -107,9 +109,11 @@ for i in range(num_of_sentences):
     print(" ".join(sentence))
     print(tokens_sentence)
     print()
-	```
+```
+
 Creating bigrams from the file the first word is picked randomly and the second word is picked as the most frequent word of the first word. we here appending them into the sentences.
-```python
+
+```
 # generate 5 sentences with 10 words with trigram
 print("TRIGRAM:\n")
 trigrams = list(nltk.trigrams(words))
@@ -153,8 +157,10 @@ for i in range(num_of_sentences):
     print(" ".join(sentence))
     print(tokens_sentence)
     print()
-	```
+```
+
 Generating trigrams from file, first word should be randomly picked and the second word is taken from bigrams, third word is the most frequent word followed by the second word and the fourth will be the most frequent word of the both second and third word.
+
 ```python
 # generate 5 sentences with 10 words with N-gram
 print("4-GRAM:\n")
@@ -207,7 +213,7 @@ for i in range(num_of_sentences):
     print(" ".join(sentence))
     print(tokens_sentence)
     print()
-	```
+```
 Similary we can generate the 4-grams by following the method of trigrams. 
 
 
