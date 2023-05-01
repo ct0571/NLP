@@ -43,6 +43,7 @@ train_labels = train_data['label'].values
 # Splitting the data and labels into train and test sets
 train_data, test_data, train_labels, test_labels = train_test_split(train_features, train_labels, 
                                                                     test_size=0.3, random_state = 25)
+
 ```
 Install and import required packages for the analysis
 Read the train and test datasets with their respective labels using pandas and concat the both data and labels.
@@ -75,7 +76,8 @@ class TweetClassifier(nn.Module):
         log = self.softmax(log)
         
         return log
-	```
+```
+
 Tokenizing the tweet and creating word2vec embeddings
 Defining a class TweetClassifier for classifying the sentiments and will consider the neural network layers embedding layer and output layer. We are using the embedding layer, fully connected layer for transformation  and reluctance activation, softmax methods after the linear transformation.
 
@@ -104,7 +106,8 @@ for tweet in test_data:
         words = tweet[0].split()
         indices = [word_to_idx[word] if word in word_to_idx else 0 for word in words]
         test_ind.append(indices)
-	```
+```
+
 Finding the unique words in the training dataset, splitting them and updating the empty list of uniq_words, next we will create the vocab by assigning unique words and mapping the index.
 We will convert the train and text data into indices.
 
@@ -141,7 +144,8 @@ train_dataset = TweetDataset(train_ind, train_labels)
 train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True, collate_fn=collate_fn)
 test_dataset = TweetDataset(test_ind, test_labels)
 test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False, collate_fn=collate_fn)
-	```
+```
+
 We will use the pytorch to load train and test dataset by using DataLoader, and combining inputs and labels in the batch, taking the batch size as 32.
 Initializing the embedding dimensionality, vocabulary size, output dimensionality.
 
@@ -174,9 +178,11 @@ for epoch in range(num_epochs):
         optimizer.zero_grad()
         loss.backward()
         optimizer.step()
-	```
+```
+
 We will evaluate the model by taking the test dataset, loop through the test loader and predict the model. Will calculate the model accuracy and confusion matrix and print it out.
 We also print the classification report of the model such as predict,f1-score,  recall etc,.
+
 ```python
 
 #Evaluating the model on the test dataset
